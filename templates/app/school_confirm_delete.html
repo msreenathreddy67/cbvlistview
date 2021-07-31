@@ -1,0 +1,21 @@
+{% extends 'app/base.html' %}
+
+{% block title %}
+    <title>home page</title>
+    {% endblock %}
+  
+
+    {% block body_block %}
+    <div class='container'>
+        <div class='jumbotron'>
+                <h1>Are u sure to delete {{school}}</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="submit" value="yes,Sure-delete" class="btn btn-danger">
+                    <a href="{% url 'list' %}">No-Dont delete</a>
+            </form>
+               
+        </div>
+    </div>
+    {% endblock %}
+    

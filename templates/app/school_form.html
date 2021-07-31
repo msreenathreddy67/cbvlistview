@@ -1,0 +1,30 @@
+  
+{% extends 'app/base.html' %}
+
+{% block title %}
+    <title>Create page</title>
+    {% endblock %}
+  
+
+    {% block body_block %}
+    <div class='container'>
+        <div class='jumbotron'>
+            {% if form.instance.pk %}
+                <h1>Update the details</h1>
+            {% else %}
+                <h1>Create School By filling the form:</h1>
+            {% endif %}
+                <form method="POST">
+                    {% csrf_token %}
+                        {{form.as_p}}
+                    <br>
+                    {% if form.instance.pk %}
+                        
+                    <input type="submit" value="Update" class='btn btn-success'>
+                    {% else %}
+                    <input type="submit" value="Create" class='btn btn-success'>
+                    {% endif %}
+                </form>
+        </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'app/base.html' %}
+
+{% block title %}
+    <title>Detail View page</title>
+    {% endblock %}
+  
+
+    {% block body_block %}
+    <div class='container'>
+        <div class='jumbotron'>
+                <h1>Displaying the Detail information</h1>
+                <table border='1px'>
+                    <tr><th>Name of school</th>
+                    <th>Principal of School</th>
+                <th>location of School</th></tr>
+
+                <tr>
+                    <td>{{school.name}}</td>
+                    <td>{{school.principal}}</td>
+                    <td>{{school.location}}</td>
+                </tr>
+                </table>
+
+                {% for student in school.students.all %}
+                name of student is: {{student.name}}<br>
+                age of student is {{student.age}}<br>
+                {% endfor %}
+        </div>
+        <a href="{% url 'update' pk=school.pk %}" class='btn btn-danger'>Update</a>
+        <a href="{% url 'delete' pk=school.pk %}" class='btn btn-danger'>Delete</a>
+    </div>
+    {% endblock %}
