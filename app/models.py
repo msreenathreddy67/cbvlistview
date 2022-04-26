@@ -13,7 +13,7 @@ class School(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        return reverse('detail',kwargs={'pk':self.pk})
+        return reverse('detail',kwargs={'pk':self.id})
 
 class Student(models.Model):
     name=models.CharField(max_length=100)
@@ -22,3 +22,4 @@ class Student(models.Model):
 
     def __str__(self):
         return self.name
+        
